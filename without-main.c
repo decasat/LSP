@@ -2,7 +2,7 @@
 *	Filename: without-main.c
 * 
 *	Description: Program without main() funct
-*	Compilation : gcc -O3 -nostartfiles without_main.c
+*	Compilation : gcc -O3 -nostartfiles without-main.c
 *	programmer: Sateesh Kumar G <contact@sateeshkg.com>
 *	date begun: 02 OCT 2018
 \********************************************************************/
