@@ -25,16 +25,14 @@ int main(int argc, char *argv[], char *envp[])
 
 
 
-	/* auxilliary vectors are located after the end of the environment
-	 *       * variables
-	 *               *
-	 *                       * check this helpful diagram: https://static.lwn.net/images/2012/auxvec.png
-	 *                               **/
+	/* auxilliary vectors are located after the end of the environment variables
+         * check this helpful diagram: https://static.lwn.net/images/2012/auxvec.png
+	 */
 	while (*envp++ != NULL);
 
 	/* envp is now pointed at the auxilliary vectors, since we've iterated
-	 *       * through the environment variables.
-	 *               **/
+	 * through the environment variables.
+	 */
 	for (auxv = (Elf32_auxv_t *) envp; auxv->a_type != AT_NULL; auxv++) {
 		if (auxv->a_type == AT_SYSINFO) {
 			break;
@@ -42,8 +40,8 @@ int main(int argc, char *argv[], char *envp[])
 	}
 
 	/* NOTE: in glibc 2.16 and higher you can replace the above code with
-	 *       * a call to getauxval(3):  getauxval(AT_SYSINFO)
-	 *               **/
+	 * a call to getauxval(3):  getauxval(AT_SYSINFO)
+	 */
 
       asm("movl %0,  %%eax \n" "movl %60, %%ebx\n" "call *%2\n":	/* output parameters, we aren't outputting anything, no none */
 	/* (none) */
